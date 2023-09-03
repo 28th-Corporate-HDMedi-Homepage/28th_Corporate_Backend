@@ -16,14 +16,14 @@ on:
 env:
   AWS_REGION: ap-northeast-2 # EC2 Region
   S3_BUCKET_NAME: hdmedi-bucket # S3 bucket name
-  IAM_ROLE_ARN: ${{ secrets.IAM_ROLE_ARN }}
+#  IAM_ROLE_ARN: ${{ secrets.IAM_ROLE_ARN }}
   CODE_DEPLOY_APPLICATION_NAME: HDMedi-Corporate-project
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: HDMedi-deployment-group
+  SERVER_PORT: ${{ secrets.SERVER_PORT }}
   #  DB_URL: ${{ secrets.DB_URL }}
   #  DB_USERNAME: ${{ secrets.DB_USERNAME }}
   #  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
   #  DDL_AUTO: ${{ secrets.DDL_AUTO }}
-  SERVER_PORT: ${{ secrets.SERVER_PORT }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -72,7 +72,9 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-region: ${{ env.AWS_REGION }}
-          role-to-assume: ${{ env.IAM_ROLE_ARN }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+#          role-to-assume: ${{ env.IAM_ROLE_ARN }}
 
       # (6) 빌드 결과물을 S3 버킷에 업로드
       - name: Upload to AWS S3
