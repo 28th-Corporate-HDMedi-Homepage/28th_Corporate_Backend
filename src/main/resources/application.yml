@@ -22,7 +22,7 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
       default_batch_fetch_size: 500
     show-sql: true
     properties:
