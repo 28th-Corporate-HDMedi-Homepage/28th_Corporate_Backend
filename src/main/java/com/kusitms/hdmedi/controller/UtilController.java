@@ -4,6 +4,7 @@ import com.kusitms.hdmedi.domain.dto.request.ContactMailRequestDto;
 import com.kusitms.hdmedi.service.UtilService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +19,7 @@ public class UtilController {
         return "test success";
     }
 
-    @GetMapping("/contact")
+    @PostMapping("/contact")
     public void sendMail(@RequestBody ContactMailRequestDto dto) {
         utilService.sendMail(dto);
     }

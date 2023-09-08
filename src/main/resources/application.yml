@@ -22,7 +22,7 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
       default_batch_fetch_size: 500
     show-sql: true
     properties:
@@ -39,3 +39,10 @@ spring:
           auth: true
           starttls:
             enable: true
+  thymeleaf:
+    prefix: classpath:/templates/mail-templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    check-template-location: true
+    cache: false
