@@ -4,6 +4,7 @@ package com.kusitms.hdmedi.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 
