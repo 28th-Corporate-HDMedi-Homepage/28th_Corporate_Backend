@@ -26,7 +26,7 @@ public class UtilService {
     private final JavaMailSender mailSender;
     private final SpringTemplateEngine templateEngine;
 
-    private final String HDMEDI_MAIL_RECEIVER = "eckrin.dev@gmail.com";
+    private final String HDMEDI_MAIL_RECEIVER = "001002jiho@naver.com";
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void sendMail(ContactMailRequestDto dto) {
